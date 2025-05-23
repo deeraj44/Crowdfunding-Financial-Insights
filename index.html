@@ -104,11 +104,11 @@
                         </div>
                         <h3 class="mt-6 text-lg font-medium text-gray-900">The Inspiration</h3>
                         <p class="mt-2 text-base text-gray-500">
-                           I’ve always been fascinated by the power of ideas — and how platforms like Kickstarter help bring them to life. But I wanted to know:
+                           I’ve always been fascinated by the power of ideas, and how platforms like Kickstarter help bring them to life. But I wanted to know:
 
 What actually makes a crowdfunding campaign successful?
 With thousands of campaigns being launched every month, I saw an opportunity to use data science not just to analyze performance but to help creators and investors understand the patterns behind success and failure.
-This led me to a public dataset of Kickstarter campaigns from Kaggle — a perfect real-world case for turning raw data into actionable insights.
+This led me to a public dataset of Kickstarter campaigns from Kaggle, a perfect real-world case for turning raw data into actionable insights.
                         </p>
                     </div>
 
@@ -118,7 +118,11 @@ This led me to a public dataset of Kickstarter campaigns from Kaggle — a perfe
                         </div>
                         <h3 class="mt-6 text-lg font-medium text-gray-900">The Challenge</h3>
                         <p class="mt-2 text-base text-gray-500">
-                            Crowdfunding platforms provide raw data, but extracting meaningful insights requires sophisticated analysis tools that most creators don't have access to.
+                            The dataset was large and messy — over 300,000 rows with inconsistent types, redundant data, and no relational structure.
+Raw data lacked normalization — everything was in one table
+Date and numeric fields were poorly formatted
+Needed to categorize funding goals into meaningful buckets
+Built a normalized schema using SQL with 3NF principles
                         </p>
                     </div>
 
@@ -128,7 +132,7 @@ This led me to a public dataset of Kickstarter campaigns from Kaggle — a perfe
                         </div>
                         <h3 class="mt-6 text-lg font-medium text-gray-900">The Solution</h3>
                         <p class="mt-2 text-base text-gray-500">
-                            This dashboard transforms complex crowdfunding data into intuitive visualizations, helping creators optimize their campaigns and backers identify promising projects.
+                            Once the data was cleaned and transformed, I exported it into Excel and connected it to Power BI to bring the insights to life. The dashboard transforms complex crowdfunding data into intuitive visualizations, helping creators optimize their campaigns and backers identify promising projects.
                         </p>
                     </div>
                 </div>
@@ -178,34 +182,76 @@ This led me to a public dataset of Kickstarter campaigns from Kaggle — a perfe
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">cf_12345</td>
                                     </tr>
                                     <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Name</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Project name</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">String</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Boco Tea</td>
+                                    </tr>
+                                    <tr>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Category</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Category of campaign</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">String</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Drinks</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Main Category</td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Project category</td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">String</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Technology</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Food</td>
                                     </tr>
                                     <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Goal Amount</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Funding target</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Numeric</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">$50,000</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Currency</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">currency used to support</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">String</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">USD</td>
                                     </tr>
                                     <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Pledged Amount</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Amount raised</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">deadline</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">deadline for crowdfunding</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Date time</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">8/29/2015  1:00:00 AM</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Goal</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Fundraising goal</td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Numeric</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">$62,450</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">50000</td>
+                                    </tr>
+                                     <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Launched</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Launch date</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Date time</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">3/17/2012  3:24:00 AM</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Pledged</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">amount pledged by crowd</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Integer</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">1205</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">State</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">current condition the project is in</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">String</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">success</td>
                                     </tr>
                                     <tr>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Backers</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Number of supporters</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Integer</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">842</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Duration</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Campaign length (days)</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">number of backers</td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Integer</td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">30</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Country</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">country pledged from</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">String</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">US</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">USD Pledged</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">amount of money pledged</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Numeric</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">62450</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -224,7 +270,7 @@ This led me to a public dataset of Kickstarter campaigns from Kaggle — a perfe
                                     <dl>
                                         <dt class="text-sm font-medium text-gray-500 truncate">Total Campaigns</dt>
                                         <dd class="flex items-baseline">
-                                            <div class="text-2xl font-semibold text-gray-900">4,852</div>
+                                            <div class="text-2xl font-semibold text-gray-900">320201</div>
                                         </dd>
                                     </dl>
                                 </div>
@@ -242,7 +288,7 @@ This led me to a public dataset of Kickstarter campaigns from Kaggle — a perfe
                                     <dl>
                                         <dt class="text-sm font-medium text-gray-500 truncate">Categories</dt>
                                         <dd class="flex items-baseline">
-                                            <div class="text-2xl font-semibold text-gray-900">24</div>
+                                            <div class="text-2xl font-semibold text-gray-900">158</div>
                                         </dd>
                                     </dl>
                                 </div>
@@ -260,7 +306,7 @@ This led me to a public dataset of Kickstarter campaigns from Kaggle — a perfe
                                     <dl>
                                         <dt class="text-sm font-medium text-gray-500 truncate">Total Pledged</dt>
                                         <dd class="flex items-baseline">
-                                            <div class="text-2xl font-semibold text-gray-900">$28.7M</div>
+                                            <div class="text-2xl font-semibold text-gray-900">$2.51B</div>
                                         </dd>
                                     </dl>
                                 </div>
@@ -303,7 +349,10 @@ This led me to a public dataset of Kickstarter campaigns from Kaggle — a perfe
                         </div>
                         <h3 class="mt-6 text-lg font-medium text-gray-900">Interactive Filters</h3>
                         <p class="mt-2 text-base text-gray-500">
-                            Drill down into specific categories, time periods, and funding ranges to uncover hidden patterns.
+                           Total Campaigns: 10,000+
+Total USD Pledged: $2.5 Billion
+Success Rate: 35%
+Total Backers: 32,840K
                         </p>
                     </div>
 
@@ -313,8 +362,11 @@ This led me to a public dataset of Kickstarter campaigns from Kaggle — a perfe
                         </div>
                         <h3 class="mt-6 text-lg font-medium text-gray-900">Visual Analytics</h3>
                         <p class="mt-2 text-base text-gray-500">
-                            Beautifully crafted charts and graphs that make complex data relationships immediately understandable.
-                        </p>
+Success Rate by Category – Stacked bar showing outcome trends
+Funding Goal Range vs Avg Pledged – Clustered bar revealing efficiency by ambition
+Pledged USD by Country – Geographic funding differences
+Campaigns Launched Over Time – Monthly trends in campaign activity
+Backers by Outcome – Who supports what kinds of campaigns?                        </p>
                     </div>
 
                     <div class="bg-gray-50 p-6 rounded-lg data-card">
@@ -323,7 +375,10 @@ This led me to a public dataset of Kickstarter campaigns from Kaggle — a perfe
                         </div>
                         <h3 class="mt-6 text-lg font-medium text-gray-900">Real-time Insights</h3>
                         <p class="mt-2 text-base text-gray-500">
-                            Dynamic calculations that update instantly as you explore different segments of the data.
+By using slicers (category, country, state, goal range), users can instantly:
+Compare success rates between regions
+Understand how large funding goals impact performance
+Track countrywise funding per campaign
                         </p>
                     </div>
                 </div>
@@ -341,7 +396,7 @@ This led me to a public dataset of Kickstarter campaigns from Kaggle — a perfe
                 The complete project is available on GitHub. Feel free to contribute or use it as inspiration for your own projects!
             </p>
             <div class="mt-12">
-                <a href="https://github.com/yourusername/crowdfunding-dashboard" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-purple-700 bg-white hover:bg-gray-100">
+                <a href="https://github.com/deeraj44/Crowdfunding-Financial-Insights" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-purple-700 bg-white hover:bg-gray-100">
                     <i class="fab fa-github mr-2 text-xl"></i>
                     View on GitHub
                 </a>
@@ -356,7 +411,7 @@ This led me to a public dataset of Kickstarter campaigns from Kaggle — a perfe
                             </div>
                             <h3 class="mt-8 text-lg font-medium text-white tracking-tight">Technologies Used</h3>
                             <p class="mt-5 text-base text-gray-200">
-                                React, D3.js, Chart.js, Tailwind CSS, and more. Modern web technologies for powerful data visualization.
+                                SQL, Excel, Power BI, Pandas, KPIs
                             </p>
                         </div>
                     </div>
@@ -370,7 +425,7 @@ This led me to a public dataset of Kickstarter campaigns from Kaggle — a perfe
                             </div>
                             <h3 class="mt-8 text-lg font-medium text-white tracking-tight">Documentation</h3>
                             <p class="mt-5 text-base text-gray-200">
-                                Comprehensive README with setup instructions, architecture overview, and contribution guidelines.
+                                Comprehensive README available in the Github repo
                             </p>
                         </div>
                     </div>
@@ -382,10 +437,12 @@ This led me to a public dataset of Kickstarter campaigns from Kaggle — a perfe
                             <div class="flex items-center justify-center h-12 w-12 rounded-md bg-white text-purple-600 mx-auto">
                                 <i class="fas fa-hands-helping text-xl"></i>
                             </div>
-                            <h3 class="mt-8 text-lg font-medium text-white tracking-tight">Open Source</h3>
+                            <h3 class="mt-8 text-lg font-medium text-white tracking-tight">What I Learned</h3>
                             <p class="mt-5 text-base text-gray-200">
-                                MIT licensed. Free to use, modify and distribute. Contributions and feedback are welcome!
-                            </p>
+This project taught me more than technical skills, it showed me how data can tell a story. I learned how to:
+Clean and model large datasets for analysis
+Use SQL not just for queries, but as a data engineering tool
+Design dashboards that are clear, interactive, and useful to decision-makers                            </p>
                         </div>
                     </div>
                 </div>
@@ -400,91 +457,20 @@ This led me to a public dataset of Kickstarter campaigns from Kaggle — a perfe
                 <div class="space-y-8 xl:col-span-1">
                     <div class="flex items-center">
                         <i class="fas fa-chart-line text-purple-400 text-2xl mr-2"></i>
-                        <span class="text-xl font-bold text-white">Crowdfunding Insights</span>
+                        <span class="text-xl font-bold text-white">Crowdfunding Financial Insights</span>
                     </div>
                     <p class="text-gray-300 text-base">
                         Transforming crowdfunding data into actionable insights.
                     </p>
                     <div class="flex space-x-6">
-                        <a href="#" class="text-gray-400 hover:text-gray-300">
-                            <i class="fab fa-twitter text-xl"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-gray-300">
+                        <a href="https://github.com/deeraj44" class="text-gray-400 hover:text-gray-300">
                             <i class="fab fa-github text-xl"></i>
                         </a>
-                        <a href="#" class="text-gray-400 hover:text-gray-300">
+                        <a href="https://www.linkedin.com/in/deeraj-nair-1a7403214/" class="text-gray-400 hover:text-gray-300">
                             <i class="fab fa-linkedin text-xl"></i>
                         </a>
                     </div>
                 </div>
-                <div class="mt-12 grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2">
-                    <div class="md:grid md:grid-cols-2 md:gap-8">
-                        <div>
-                            <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase">
-                                Project
-                            </h3>
-                            <ul class="mt-4 space-y-4">
-                                <li>
-                                    <a href="#story" class="text-base text-gray-400 hover:text-white">
-                                        Story
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#data" class="text-base text-gray-400 hover:text-white">
-                                        Dataset
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#dashboard" class="text-base text-gray-400 hover:text-white">
-                                        Dashboard
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="mt-12 md:mt-0">
-                            <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase">
-                                Resources
-                            </h3>
-                            <ul class="mt-4 space-y-4">
-                                <li>
-                                    <a href="#github" class="text-base text-gray-400 hover:text-white">
-                                        GitHub
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="text-base text-gray-400 hover:text-white">
-                                        Documentation
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="text-base text-gray-400 hover:text-white">
-                                        API Reference
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="md:grid md:grid-cols-2 md:gap-8">
-                        <div>
-                            <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase">
-                                Legal
-                            </h3>
-                            <ul class="mt-4 space-y-4">
-                                <li>
-                                    <a href="#" class="text-base text-gray-400 hover:text-white">
-                                        Privacy
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="text-base text-gray-400 hover:text-white">
-                                        Terms
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="mt-12 border-t border-gray-700 pt-8">
                 <p class="text-base text-gray-400 text-center">
                     &copy; 2023 Crowdfunding Financial Insights Dashboard. All rights reserved.
