@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crowdfunding Financial Insights Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+        }
+        .dashboard-preview {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .dashboard-preview:hover {
+            transform: translateY(-5px);
+        }
+        .data-card {
+            transition: all 0.3s ease;
+        }
+        .data-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-chart-line text-purple-600 text-2xl mr-2"></i>
+                        <span class="text-xl font-bold text-gray-900">Crowdfunding Insights</span>
+                    </div>
+                </div>
+                <div class="hidden sm:ml-6 sm:flex sm:items-center">
+                    <a href="#story" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-purple-600">Story</a>
+                    <a href="#data" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-purple-600">Dataset</a>
+                    <a href="#dashboard" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-purple-600">Dashboard</a>
+                    <a href="#github" class="ml-4 px-4 py-2 rounded-md text-sm font-medium text-white bg-purple-600 hover:bg-purple-700">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="gradient-bg text-white">
+        <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+                Crowdfunding Financial Insights
+            </h1>
+            <p class="mt-6 max-w-2xl mx-auto text-xl">
+                Unlocking powerful insights from crowdfunding data to help creators and backers make informed decisions.
+            </p>
+            <div class="mt-10 flex justify-center space-x-4">
+                <a href="#dashboard" class="px-8 py-3 border border-transparent text-base font-medium rounded-md text-purple-700 bg-white hover:bg-gray-100 md:py-4 md:text-lg md:px-10">
+                    View Dashboard
+                </a>
+                <a href="#github" class="px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-purple-800 hover:bg-purple-900 md:py-4 md:text-lg md:px-10">
+                    GitHub Repo
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Story Section -->
+    <div id="story" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-purple-600 font-semibold tracking-wide uppercase">The Story</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Why I Built This Dashboard
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                    Understanding the dynamics of crowdfunding campaigns through data visualization.
+                </p>
+            </div>
+
+            <div class="mt-20">
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-gray-50 p-6 rounded-lg data-card">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-purple-500 text-white">
+                            <i class="fas fa-lightbulb text-xl"></i>
+                        </div>
+                        <h3 class="mt-6 text-lg font-medium text-gray-900">The Inspiration</h3>
+                        <p class="mt-2 text-base text-gray-500">
+                            As an avid supporter of crowdfunding campaigns, I noticed patterns in successful projects but lacked concrete data to validate my observations.
+                        </p>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-lg data-card">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-purple-500 text-white">
+                            <i class="fas fa-database text-xl"></i>
+                        </div>
+                        <h3 class="mt-6 text-lg font-medium text-gray-900">The Challenge</h3>
+                        <p class="mt-2 text-base text-gray-500">
+                            Crowdfunding platforms provide raw data, but extracting meaningful insights requires sophisticated analysis tools that most creators don't have access to.
+                        </p>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-lg data-card">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-purple-500 text-white">
+                            <i class="fas fa-chart-bar text-xl"></i>
+                        </div>
+                        <h3 class="mt-6 text-lg font-medium text-gray-900">The Solution</h3>
+                        <p class="mt-2 text-base text-gray-500">
+                            This dashboard transforms complex crowdfunding data into intuitive visualizations, helping creators optimize their campaigns and backers identify promising projects.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dataset Section -->
+    <div id="data" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-purple-600 font-semibold tracking-wide uppercase">The Dataset</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Comprehensive Crowdfunding Data
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                    Analyzing thousands of campaigns across multiple platforms and categories.
+                </p>
+            </div>
+
+            <div class="mt-10">
+                <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+                    <div class="px-4 py-5 sm:px-6 border-b border-gray-200">
+                        <h3 class="text-lg leading-6 font-medium text-gray-900">
+                            Dataset Overview
+                        </h3>
+                        <p class="mt-1 max-w-2xl text-sm text-gray-500">
+                            Key attributes and statistics from the crowdfunding dataset.
+                        </p>
+                    </div>
+                    <div class="px-4 py-5 sm:p-0">
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full divide-y divide-gray-200">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Attribute</th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Type</th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Example</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200">
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Campaign ID</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Unique identifier</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">String</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">cf_12345</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Category</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Project category</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">String</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Technology</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Goal Amount</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Funding target</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Numeric</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">$50,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Pledged Amount</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Amount raised</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Numeric</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">$62,450</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Backers</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Number of supporters</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Integer</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">842</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Duration</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Campaign length (days)</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Integer</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">30</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-3">
+                    <div class="bg-white overflow-hidden shadow rounded-lg">
+                        <div class="px-4 py-5 sm:p-6">
+                            <div class="flex items-center">
+                                <div class="flex-shrink-0 bg-purple-500 rounded-md p-3">
+                                    <i class="fas fa-project-diagram text-white text-xl"></i>
+                                </div>
+                                <div class="ml-5 w-0 flex-1">
+                                    <dl>
+                                        <dt class="text-sm font-medium text-gray-500 truncate">Total Campaigns</dt>
+                                        <dd class="flex items-baseline">
+                                            <div class="text-2xl font-semibold text-gray-900">4,852</div>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white overflow-hidden shadow rounded-lg">
+                        <div class="px-4 py-5 sm:p-6">
+                            <div class="flex items-center">
+                                <div class="flex-shrink-0 bg-purple-500 rounded-md p-3">
+                                    <i class="fas fa-tags text-white text-xl"></i>
+                                </div>
+                                <div class="ml-5 w-0 flex-1">
+                                    <dl>
+                                        <dt class="text-sm font-medium text-gray-500 truncate">Categories</dt>
+                                        <dd class="flex items-baseline">
+                                            <div class="text-2xl font-semibold text-gray-900">24</div>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white overflow-hidden shadow rounded-lg">
+                        <div class="px-4 py-5 sm:p-6">
+                            <div class="flex items-center">
+                                <div class="flex-shrink-0 bg-purple-500 rounded-md p-3">
+                                    <i class="fas fa-dollar-sign text-white text-xl"></i>
+                                </div>
+                                <div class="ml-5 w-0 flex-1">
+                                    <dl>
+                                        <dt class="text-sm font-medium text-gray-500 truncate">Total Pledged</dt>
+                                        <dd class="flex items-baseline">
+                                            <div class="text-2xl font-semibold text-gray-900">$28.7M</div>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Preview -->
+    <div id="dashboard" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-purple-600 font-semibold tracking-wide uppercase">Dashboard</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Interactive Financial Insights
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                    Explore the key features of the Crowdfunding Financial Insights Dashboard.
+                </p>
+            </div>
+
+            <div class="mt-12">
+                <div class="dashboard-preview bg-white mx-auto max-w-6xl">
+                    <div class="relative">
+                        <!-- Dashboard mockup -->
+                        <div class="bg-gray-800 p-4">
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="text-white font-semibold">Crowdfunding Dashboard</h3>
+                                <div class="flex space-x-2">
+                                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-700 p-4 rounded-lg">
+                                <!-- Filters row -->
+                                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+                                    <div class="bg-gray-600 p-3 rounded h-10 animate-pulse"></div>
+                                    <div class="bg-gray-600 p-3 rounded h-10 animate-pulse"></div>
+                                    <div class="bg-gray-600 p-3 rounded h-10 animate-pulse"></div>
+                                    <div class="bg-gray-600 p-3 rounded h-10 animate-pulse"></div>
+                                </div>
+                                
+                                <!-- KPI cards -->
+                                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                                    <div class="bg-purple-600 p-4 rounded-lg h-24"></div>
+                                    <div class="bg-blue-600 p-4 rounded-lg h-24"></div>
+                                    <div class="bg-green-600 p-4 rounded-lg h-24"></div>
+                                    <div class="bg-yellow-600 p-4 rounded-lg h-24"></div>
+                                </div>
+                                
+                                <!-- Charts row 1 -->
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                                    <div class="bg-gray-600 p-4 rounded-lg h-64"></div>
+                                    <div class="bg-gray-600 p-4 rounded-lg h-64"></div>
+                                </div>
+                                
+                                <!-- Charts row 2 -->
+                                <div class="grid grid-cols-1 gap-4">
+                                    <div class="bg-gray-600 p-4 rounded-lg h-64"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-16 grid md:grid-cols-3 gap-8">
+                    <div class="bg-gray-50 p-6 rounded-lg data-card">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-purple-500 text-white">
+                            <i class="fas fa-filter text-xl"></i>
+                        </div>
+                        <h3 class="mt-6 text-lg font-medium text-gray-900">Interactive Filters</h3>
+                        <p class="mt-2 text-base text-gray-500">
+                            Drill down into specific categories, time periods, and funding ranges to uncover hidden patterns.
+                        </p>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-lg data-card">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-purple-500 text-white">
+                            <i class="fas fa-chart-pie text-xl"></i>
+                        </div>
+                        <h3 class="mt-6 text-lg font-medium text-gray-900">Visual Analytics</h3>
+                        <p class="mt-2 text-base text-gray-500">
+                            Beautifully crafted charts and graphs that make complex data relationships immediately understandable.
+                        </p>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-lg data-card">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-purple-500 text-white">
+                            <i class="fas fa-bolt text-xl"></i>
+                        </div>
+                        <h3 class="mt-6 text-lg font-medium text-gray-900">Real-time Insights</h3>
+                        <p class="mt-2 text-base text-gray-500">
+                            Dynamic calculations that update instantly as you explore different segments of the data.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GitHub Section -->
+    <div id="github" class="py-16 gradient-bg text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl">
+                Explore the Code
+            </h2>
+            <p class="mt-4 max-w-2xl mx-auto text-xl">
+                The complete project is available on GitHub. Feel free to contribute or use it as inspiration for your own projects!
+            </p>
+            <div class="mt-12">
+                <a href="https://github.com/yourusername/crowdfunding-dashboard" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-purple-700 bg-white hover:bg-gray-100">
+                    <i class="fab fa-github mr-2 text-xl"></i>
+                    View on GitHub
+                </a>
+            </div>
+            
+            <div class="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                <div class="pt-6">
+                    <div class="flow-root bg-white bg-opacity-10 px-6 pb-8 rounded-lg h-full">
+                        <div class="-mt-6">
+                            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-white text-purple-600 mx-auto">
+                                <i class="fas fa-code text-xl"></i>
+                            </div>
+                            <h3 class="mt-8 text-lg font-medium text-white tracking-tight">Technologies Used</h3>
+                            <p class="mt-5 text-base text-gray-200">
+                                React, D3.js, Chart.js, Tailwind CSS, and more. Modern web technologies for powerful data visualization.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-6">
+                    <div class="flow-root bg-white bg-opacity-10 px-6 pb-8 rounded-lg h-full">
+                        <div class="-mt-6">
+                            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-white text-purple-600 mx-auto">
+                                <i class="fas fa-book-open text-xl"></i>
+                            </div>
+                            <h3 class="mt-8 text-lg font-medium text-white tracking-tight">Documentation</h3>
+                            <p class="mt-5 text-base text-gray-200">
+                                Comprehensive README with setup instructions, architecture overview, and contribution guidelines.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-6">
+                    <div class="flow-root bg-white bg-opacity-10 px-6 pb-8 rounded-lg h-full">
+                        <div class="-mt-6">
+                            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-white text-purple-600 mx-auto">
+                                <i class="fas fa-hands-helping text-xl"></i>
+                            </div>
+                            <h3 class="mt-8 text-lg font-medium text-white tracking-tight">Open Source</h3>
+                            <p class="mt-5 text-base text-gray-200">
+                                MIT licensed. Free to use, modify and distribute. Contributions and feedback are welcome!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+                <div class="space-y-8 xl:col-span-1">
+                    <div class="flex items-center">
+                        <i class="fas fa-chart-line text-purple-400 text-2xl mr-2"></i>
+                        <span class="text-xl font-bold text-white">Crowdfunding Insights</span>
+                    </div>
+                    <p class="text-gray-300 text-base">
+                        Transforming crowdfunding data into actionable insights.
+                    </p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-gray-300">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-gray-300">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-gray-300">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="mt-12 grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2">
+                    <div class="md:grid md:grid-cols-2 md:gap-8">
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase">
+                                Project
+                            </h3>
+                            <ul class="mt-4 space-y-4">
+                                <li>
+                                    <a href="#story" class="text-base text-gray-400 hover:text-white">
+                                        Story
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#data" class="text-base text-gray-400 hover:text-white">
+                                        Dataset
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#dashboard" class="text-base text-gray-400 hover:text-white">
+                                        Dashboard
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mt-12 md:mt-0">
+                            <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase">
+                                Resources
+                            </h3>
+                            <ul class="mt-4 space-y-4">
+                                <li>
+                                    <a href="#github" class="text-base text-gray-400 hover:text-white">
+                                        GitHub
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">
+                                        Documentation
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">
+                                        API Reference
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="md:grid md:grid-cols-2 md:gap-8">
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase">
+                                Legal
+                            </h3>
+                            <ul class="mt-4 space-y-4">
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">
+                                        Privacy
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">
+                                        Terms
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-700 pt-8">
+                <p class="text-base text-gray-400 text-center">
+                    &copy; 2023 Crowdfunding Financial Insights Dashboard. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add animation class to dashboard preview on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-float');
+                } else {
+                    entry.target.classList.remove('animate-float');
+                }
+            });
+        }, {threshold: 0.1});
+
+        const dashboardPreview = document.querySelector('.dashboard-preview');
+        if (dashboardPreview) {
+            observer.observe(dashboardPreview);
+        }
+    </script>
+</body>
+</html>
